@@ -1,3 +1,8 @@
 # Show installed kernels except the currently running one
 # https://askubuntu.com/questions/345588/what-is-the-safest-way-to-clean-up-boot-partition
 sudo dpkg --list 'linux-image*'|awk '{ if ($1=="ii") print $2}'|grep -v `uname -r`
+
+# HDMI TV connection sound check
+# This just runs a sound test with static bouncing back and forth. Once it has played out of each speaker, hit Ctrl+c to stop it, and then check in your sound settings to see if the HDMI output is now listed under the internal device
+# https://askubuntu.com/questions/112512/ubuntu-refuses-to-output-audio-via-hdmi#117773
+speaker-test --channels 2 --rate 48000 --device hw:0,3
