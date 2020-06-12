@@ -18,3 +18,7 @@ dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPl
 # ~/.bashrc command prompt conditional execution time
 # https://stackoverflow.com/a/1862762/4755520
 PS1='$([ $timer_show -gt 30 ] && echo "Finished on \D{%Y-%m-%d} at \t in ${timer_show}s" && echo - e "\n")${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
+# Run jupyter notebook from within a Docker container
+docker run -p 8888:8888 -it --entrypoint bash <image>
+pip install notebook --user && PATH=$PATH:/home/<user>/.local/bin && jupyter notebook --ip 0.0.0.0 --port 8888
