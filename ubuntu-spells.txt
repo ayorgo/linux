@@ -22,3 +22,8 @@ PS1='$([ $timer_show -gt 30 ] && echo "Finished on \D{%Y-%m-%d} at \t in ${timer
 # Run jupyter notebook from within a Docker container
 docker run -p 8888:8888 -it --entrypoint bash <image>
 pip install notebook --user && PATH=$PATH:/home/<user>/.local/bin && jupyter notebook --ip 0.0.0.0 --port 8888
+
+# Ctrl-Tab, Ctrl-Shift-Tab for switching tabs in Gnome terminal using gsettings
+# https://askubuntu.com/a/875482/658946
+gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ next-tab '<Primary>Tab'
+gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Primary><Shift>Tab'
