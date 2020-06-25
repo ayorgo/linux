@@ -27,3 +27,8 @@ pip install notebook --user && PATH=$PATH:/home/<user>/.local/bin && jupyter not
 # https://askubuntu.com/a/875482/658946
 gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ next-tab '<Primary>Tab'
 gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Primary><Shift>Tab'
+
+# Attempt to run a command until it succeeds (exit code 0) https://stackoverflow.com/a/35412396/4755520
+while my_command ; [ $? -ne 0 ];do
+    echo Loop on my_command
+  done
